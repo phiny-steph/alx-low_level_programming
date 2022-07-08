@@ -1,19 +1,22 @@
 #include "main.h"
 
 /**
- * print_line - a function that draws a straight line in the terminal.
- * followed by a new line.
- * @n: An input integer
- * Return: Always 0
+ * more_numbers - prints numbers between 0 to 14
+ * 10 times.
+ * Return: no return.
  */
-void print_line(int n)
+void more_numbers(void)
 {
-	int i = 0;
+	int i, ch;
 
-	if (n > 0)
+	for (i = 0; i < 10; i++)
 	{
-		for (; i < n; i++)
-			_putchar('_');
+		for (ch = 0; ch < 15; ch++)
+		{
+			if (ch >= 10)
+				_putchar((ch / 10) + 48);
+			_putchar((ch % 10) + 48);
+		}
+		_putchar('\n');
 	}
-	_putchar('\n');
 }
