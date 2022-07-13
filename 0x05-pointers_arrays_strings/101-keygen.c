@@ -1,39 +1,26 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 /**
- * _atoi - Converts a string to an integer
- * @s: The string
+ * main - Entry point
  *
- * Return: The converted integer
+ * Return: 0
  */
-int _atoi(char *s)
+int main(void)
 {
-	int i, value, sign;
-	char c;
+	int myrand;
+	int count;
+	int total;
 
-	i = 0;
-	value = 0;
-	sign = -1;
-	while (s[i] != '\0')
+	srand(time(NULL));
+	for (count = 0, total = 2772; total > 122; count++)
 	{
-		c = s[i];
-		if (c == '-')
-			sign *= -1;
-		else if (c >= '0' && c <= '9')
-		{
-			if (value < 0)
-				value = value * 10 - (c - '0');
-			else
-				value = (c - '0') * -1;
-
-			/* Make sure the next char is a number */
-			if (s[i + 1] < '0' || s[i + 1] > '9')
-				break;
-		}
-		i++;
+		myrand = (rand() % 125) + 1;
+		printf("%c", myrand);
+		total -= myrand;
 	}
-	if (sign < 0)
-		value *= -1;
+	printf("%c", total);
 
-	return (value);
+	return (0);
 }
