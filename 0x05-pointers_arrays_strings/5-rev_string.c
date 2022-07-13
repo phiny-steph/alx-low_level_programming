@@ -1,27 +1,29 @@
 #include "main.h"
 
 /**
- * puts_half - prints half of a string.
- * @str: input string.
- * Return: no return.
+ * rev_string - reverse string
+ * @s: string
+ * Return: void
  */
-void puts_half(char *str)
+
+void rev_string(char *s)
 {
-	int count = 0, i;
+	int i, max, half;
+	char first, last;
 
-	while (count >= 0)
+	i = 0;
+	while (s[i] != '\0')
 	{
-		if (str[count] == '\0')
-			break;
-		count++;
+		i++;
 	}
-
-	if (count % 2 == 1)
-		i = count / 2;
-	else
-		i = (count - 1) / 2;
-
-	for (i++; i < count; i++)
-		_putchar(str[i]);
-	_putchar('\n');
+	max = i - 1;
+	half = max / 2;
+	while (half >= 0)
+	{
+		first = s[max - half];
+		last = s[half];
+		s[half] = first;
+		s[max - half] = last;
+		half--;
+	}
 }
