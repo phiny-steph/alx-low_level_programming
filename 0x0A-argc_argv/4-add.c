@@ -1,54 +1,46 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 /**
-* checkNum - verifies if string has only numbers
-* @s: string to check
-* Description: return 1 if only numbers in string, 0 if not
-* Return: 1 if only numbers, 0 if not
-*/
+ * isInteger - checks if s is an integer
+ * @s: string to check
+ * Return: 0 or 1
+ */
 
-int checkNum(char *s)
+int isInteger(const char *s)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
+	while (s[i] != '\0')
 	{
 		if (s[i] < '0' || s[i] > '9')
-			return (0);
+			return (1);
+		i++;
 	}
-	return (1);
+	return (0);
 }
 
 /**
-* main - find least amount of coins needed for change
-* @argc: number of parameters entered
-* @argv: strings entered including file name
-* Description: prints the minimum number of coins to make change
-* Return: zero
-*/
+ * main - adds positive numbers
+ * @argc: int
+ * @argv: list
+ * Return: 0
+ */
 
-int main(int argc, char **argv)
+int main(int argc, char const *argv[])
 {
-	int sum, i;
+	int sum = 0;
 
-	sum = 0;
+	while (--argc)
 
-	for (i = 1; i < argc; i++)
 	{
-		if (checkNum(argv[i]) == 0)
+		if (isInteger(argv[argc]))
 		{
 			printf("Error\n");
 			return (1);
 		}
-		if (atoi(argv[i]) <= 0)
-		{
-			printf("Error\n");
-			return (1);
-		}
-		sum += atoi(argv[i]);
+		sum += atoi(argv[argc]);
 	}
-	printf("%d\n", sum);
+	printf("%i\n", sum);
 	return (0);
 }
