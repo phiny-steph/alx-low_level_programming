@@ -1,8 +1,9 @@
 #include <stdio.h>
 /**
-* main -  Prints number of arguements
+* main -  Prints name of file
 * @argc: arguement count
-* @argv: array of pointers to CLI arguement
+* @argv: arguments entered
+* Description: print number of arguments
 * Return: 0
 **/
 int main(int argc, char *argv[])
