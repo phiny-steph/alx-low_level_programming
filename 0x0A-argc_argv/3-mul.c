@@ -1,20 +1,19 @@
-#include "main.h"
-
+#include <stdio.h>
+#include <stdlib.h>
 /**
- * main - multiplies two numbers followed by newline or
- *nprint Error if program does not recieve two arguments
- * @argc: argument count
- * @argv: argument entered
- * Return: 0(success) or 1 if not two arguments
- */
-
+* main -  Prints number of arguements
+* @argc: arguement count
+* @argv: array of pointers to CLI arguement
+* Return: 0
+**/
 int main(int argc, char *argv[])
 {
-	if (argc != 3)
+	if (argc <= 2)
 	{
-		printf("Error\n");
+		printf("%s\n", "Error");
 		return (1);
 	}
-	printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
+	else
+		printf("%d\n", (atoi(argv[argc - 1]) * atoi(argv[argc - 2])));
 	return (0);
 }
