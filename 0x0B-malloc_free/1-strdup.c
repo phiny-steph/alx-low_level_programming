@@ -1,27 +1,32 @@
-#include "main.h"
+#include <stdlib.h>
 
 /**
-* _strdup -> string duplicator function
-* @str: string to be dupliated
-* Return: a string pointer
-*/
+ * _strdup - copy
+ * @str: pointer to string
+ * Return: pointer
+ */
+
 char *_strdup(char *str)
 {
-int i = 1, j = 0;
-char *s;
+	char *s;
+	int i = 0, j;
 
-if (str == NULL)
-return (NULL);
-while (str[i])
-i++;
-s = (char *)malloc(i *sizeof(char) + 1);
-if (s == NULL)
-return (NULL);
-while (j < i)
-{
-s[j] = str[j];
-j++;
-}
-s[j] = '\0';
-return (s);
+	if (!str)
+		return (NULL);
+
+	while (*(str + i))
+		i++;
+	i++;
+	s = malloc(sizeof(char) * i);
+
+	if (s == NULL)
+	{
+		return (NULL);
+	}
+
+	for (j = 0; j <= i; j++)
+	{
+		s[j] = str[j];
+	}
+	return (s);
 }
